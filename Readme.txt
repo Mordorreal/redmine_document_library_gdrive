@@ -1,1 +1,0 @@
-DocumentLibrary folder should contain Document Library Plugin source
