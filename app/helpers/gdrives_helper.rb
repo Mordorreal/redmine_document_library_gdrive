@@ -1,0 +1,2 @@
+module GdrivesHelper
+end

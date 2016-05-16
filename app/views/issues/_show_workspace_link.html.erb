@@ -1,0 +1,41 @@
+
+<% if issue.visible_with_gdrive? && project.module_enabled?(:document_library)%>
+  <table>
+    <hr>
+    <tr>
+      <% if issue.gdrive_id %>
+        <td><a href="<%= issue.workspace_link %>" target="_blank">Document library</a></td>
+        <div class="contextual">
+          <a href="#" onclick="$('#new-google-file').toggle(); $('new-google-file').focus(); return false;">Add</a>
+        </div>
+      <% else %>
+        <td class="deliverable"><%= link_to 'Create document library', create_workspace_path(issue) %></td>
+      <% end %>
+    </tr>
+  </table>
+    <% unless issue.attachments_in_gdrive.try(:count).nil? %>
+    <table>
+      <% issue.attachments_in_gdrive.each do |file|  %>
+        <tr>
+          <td>
+            <div>
+              <span><%= image_tag(file[1]) %></span> &nbsp;&nbsp;
+              <span><%= link_to file[0], file[2], target: '_blank' %></span><br>
+            </div>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+    <% end %>
+  <%= form_for @issue, {
+                         :as => :google_file,
+                         :url => new_google_file_path(@issue),
+                         :method => :post,
+                         :html => {:id => 'new-google-file', :style => 'display: none;'}
+                     } do |f| %>
+    <%=	f.text_field :file_title, :size => 20  %>
+    <%= f.select :file_type, {'document' => 'doc', 'spreadsheet' => 'spread', 'presentation' => 'pptp'} %>
+    <%=	f.file_field :upload_file, :multiple => true, :size => 20 %>
+    <%=	f.submit 'Create/Upload' %>
+  <% end %>
+<% end %>

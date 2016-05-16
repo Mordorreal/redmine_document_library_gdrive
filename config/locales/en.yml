@@ -1,0 +1,5 @@
+# English strings go here for Rails i18n
+en:
+  # my_label: "My label"
+  gdrive_link: "Gdrive workspace:"
+  view_gdrive: "Show Gdrive in %{value} tracker"

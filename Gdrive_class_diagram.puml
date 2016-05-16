@@ -1,0 +1,90 @@
+@startuml
+
+class GdrivesController {
+#oauth2callback()
+#create_workspace()
+#new_google_file()
+}
+
+class Gdrive {
+GOOGLE_CLIENT_ID
+GOOGLE_SECRET
+APP_NAME
+APP_VERSION
+SCOPES
+
+#connect()
+#refresh_token!()
+#check_main_folder!()
+#application_root_folder()
+#create_item(name, parent, mime_type)
+#create_file_link(title, parent = nil)
+#create_file_spreadsheet(title, parent = nil)
+#create_file_doc(title, parent = nil)
+#create_file_presentation(title, parent = nil)
+#create_folder(title, parent = nil)
+#delete_file(file_id)
+#upload_file(title, mime_type, media, parent = nil)
+#find_by_title_name(title)
+#find_by_parents_id(parents_id)
+#get_file(file_id)
+#get_file_title(file_id)
+#move_file(file_id, parents_package_id)
+#copy_file(file_id, folder_id)
+#clear_parents(file_id)
+#move_files(data)
+#set_permission_open(folder_id)
+#get_children(folder_id)
+#remove_children(folder_id, child_id)
+#download_link(folder_id)
+}
+
+class Attachment {
+#upload_to_gdrive()
+#delete_from_gdrive()
+
+private #initial_gdrive()
+}
+
+class Issue {
+#copy_from_with_gdrive_remove(arg, options={})
+#get_gdrive_id()
+#create_workspace()
+#delete_workspace()
+#workspace_link()
+#attachments_in_gdrive()
+#new_file(title, type)
+#upload_file(file)
+#visible_with_gdrive?(usr = nil)
+
+private #initial_gdrive()
+}
+
+class Project {
+#get_gdrive_id()
+#create_workspace()
+#delete_workspace()
+
+private #initial_gdrive()
+}
+
+class RolesController {
+#store_translations_gdrive()
+}
+
+class TrackerHelper {
+.add_tracker_permission(tracker, permtype)
+.remove_tracker_permission(tracker, permtype)
+.permission(tracker, permtype = 'view_gdrive')
+.valid_trackers_list(project, permtype = 'view_gdrive')
+.trackers_ids_by_role(role, permtype = 'view_gdrive')
+.valid_trackers_ids(project, permtype = 'view_gdrive', usr = nil)
+.issue_has_valid_tracker?(issue, permtype = 'view_gdrive', usr = nil)
+}
+
+class Tracker {
+#add_tracker_permission()
+#remove_tracker_permission()
+}
+
+@enduml

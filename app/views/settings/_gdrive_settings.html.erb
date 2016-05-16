@@ -1,0 +1,23 @@
+<table>
+  <tbody>
+  <tr>
+    <th>Register GDrive developer account to get all needed setting:   </th>
+    <td><a href="https://console.developers.google.com/start/api?id=drive" target="_blank">Get GDrive developer account</a></td>
+  </tr>
+  <tr>
+    <th>
+      Input setting that you get from Google in application environments<br>
+      GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET and restart application.<br>
+      After this you can attach Gdrive account to Redmine.
+    </th>
+    <td>
+    </td>
+  </tr>
+  <% if ENV['GOOGLE_CLIENT_ID'] && ENV['GOOGLE_CLIENT_SECRET'] %>
+    <tr>
+      <th>Attach Gdrive account to Redmine:</th>
+      <td><%= link_to "Attach Gdrive account", "#{ENV['RAILS_RELATIVE_URL_ROOT']}/auth/google_oauth2", data: { confirm: "Warning! Will clear existing Document Library data if continue." } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
