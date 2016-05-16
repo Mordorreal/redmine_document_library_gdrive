@@ -29,9 +29,9 @@ Redmine::Plugin.register :document_library do
   name 'Redmine Document library plugin'
   author 'Denis Savchuk'
   description 'This is a plugin for Redmine that attach GDrive to projects'
-  version '0.0.1'
-  url 'http://example.com/path/to/plugin'
-  author_url 'savchuk.space'
+  version '0.1.0'
+  url 'https://github.com/Mordorreal/redmine_document_library_gdrive'
+  author_url 'https://github.com/Mordorreal'
 
   project_module :document_library do
     permission :document_library, { :document_library => [:oauth2callback, :create_workspace, :new_google_file] }, :public => true
