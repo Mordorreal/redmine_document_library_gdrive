@@ -1,5 +1,5 @@
 # redmine_document_library_gdrive
-Redmine plugin that add Gdrive document library to project.
+Redmine plugin that add option to Redmine to store any files in issues in Gdrive. You can restrict access per tracker. You need only one Gdrive account and you can manage access to files from Gdrive interface.
 
 ## Installing a plugin
 1. Copy plugin directory into `RAILS_ROOT/plugins`. If you are downloading the plugin directly from GitHub, you can do so by changing into your plugin directory and issuing a command 
