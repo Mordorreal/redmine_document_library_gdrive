@@ -13,7 +13,7 @@ You should now be able to see the plugin list in Administration -> Plugins and c
 
 4. Create Google Project in https://console.developers.google.com and add http://yourredmine.com/auth/google_oauth2/callback and https://yourredmine.com/auth/google_oauth2/callback as callbacks.
 
-5. Enable GDrive API in Google Developer Console.
+5. Enable GDrive and Google+ API in Google Developer Console for your project.
 
 ## Uninstalling a plugin
 1. Run the following command to downgrade your database (make a db backup before):
