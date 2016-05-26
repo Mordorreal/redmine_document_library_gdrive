@@ -25,7 +25,7 @@ ActionDispatch::Callbacks.to_prepare do
 
 end
 
-Redmine::Plugin.register :document_library do
+Redmine::Plugin.register :redmine_document_library_gdrive do
   name 'Redmine Document library plugin'
   author 'Denis Savchuk'
   description 'This is a plugin for Redmine that attach GDrive to projects'
@@ -33,8 +33,8 @@ Redmine::Plugin.register :document_library do
   url 'https://github.com/Mordorreal/redmine_document_library_gdrive'
   author_url 'https://github.com/Mordorreal'
 
-  project_module :document_library do
-    permission :document_library, { :document_library => [:oauth2callback, :create_workspace, :new_google_file] }, :public => true
+  project_module :redmine_document_library_gdrive do
+    permission :redmine_document_library_gdrive, { :redmine_document_library_gdrive => [:oauth2callback, :create_workspace, :new_google_file] }, :public => true
     Tracker.all.each do |t|
       DocumentLibrary::TrackerHelper.add_tracker_permission(t, 'view_gdrive')
     end
