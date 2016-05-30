@@ -15,6 +15,8 @@ You should now be able to see the plugin list in Administration -> Plugins and c
 
 5. Enable GDrive and Google+ API in Google Developer Console for your project.
 
+6. Type GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET as ENV with data from Google Project.
+
 ## Uninstalling a plugin
 1. Run the following command to downgrade your database (make a db backup before):
 `rake redmine:plugins:migrate NAME=plugin_name VERSION=0 RAILS_ENV=production`
