@@ -34,7 +34,7 @@ module DocumentLibrary
       private
 
       def initial_gdrive
-        if project.module_enabled? :document_library
+        if project.module_enabled? :redmine_document_library_gdrive
           @gdrive ||= Gdrive.first
           return nil unless @gdrive
           unless self.gdrive_id
